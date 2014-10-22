@@ -11,6 +11,7 @@ public class Params implements Serializable {
 	private String colorHex;
 	private String colorHex2;
 	private String colorHex3;
+
 	private String colorHex20;
 	private String colorHex21;
 
