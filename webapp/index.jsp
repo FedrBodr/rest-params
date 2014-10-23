@@ -15,17 +15,15 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+	<link rel="stylesheet" href="css/jquery.minicolors.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/pick-a-color-1.2.3.min.css">
 
-    <script  src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            // The DOM is ready!
-            $(".pick-a-color").pickAColor();
-        });
-    </script>
+    <script src="js/matreshka.min.js"></script>
 
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.minicolors.min.js"></script>
+    <script src="js/pages/index.js"></script>
 
 </head>
 <body>
@@ -36,13 +34,13 @@
 		<h3>Общие настройки</h3>
 		<div class="row">
 			<div class="col-md-4">
-				<input type="text" value="008000" name="colorHex" class="pick-a-color form-control">
+                <input type="text" value="008000" name="colorHex" id="colorHex" class="pick-a-color form-control">
 			</div>
 			<div class="col-md-4">
-				<input type="text" value="ff0000" name="colorHex" class="pick-a-color form-control">
+				<input type="text" value="ff0000" name="colorHex2" id="colorHex2" class="pick-a-color form-control">
 			</div>
 			<div class="col-md-4">
-				<input type="text" value="0000ff" name="colorHex" class="pick-a-color form-control">
+				<input type="text" value="0000ff" name="colorHex3" id="colorHex3" class="pick-a-color form-control">
 			</div>
 		</div>
 
@@ -74,8 +72,6 @@
 	</div>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/tinycolor-0.9.15.min.js"></script>
-<script src="js/pick-a-color-1.2.3.min.js"></script>
+
 </body>
 </html>
