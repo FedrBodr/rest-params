@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>RestParams</title>
-	<meta charset="utf-8">
+    <mеta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,6 +16,16 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/pick-a-color-1.2.3.min.css">
+
+    <script  src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // The DOM is ready!
+            $(".pick-a-color").pickAColor();
+        });
+    </script>
+
+
 </head>
 <body>
 <div class="wrapper container">
@@ -27,10 +38,10 @@
 				<input type="text" value="008000" name="colorHex" class="pick-a-color form-control">
 			</div>
 			<div class="col-md-4">
-				<input type="text" value="ff0000" name="colorHex" class="pick-a-color">
+				<input type="text" value="ff0000" name="colorHex" class="pick-a-color form-control">
 			</div>
 			<div class="col-md-4">
-				<input type="text" value="0000ff" name="colorHex" class="pick-a-color">
+				<input type="text" value="0000ff" name="colorHex" class="pick-a-color form-control">
 			</div>
 		</div>
 
