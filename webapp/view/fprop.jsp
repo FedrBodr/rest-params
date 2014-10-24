@@ -16,7 +16,7 @@
 
     <link href="css/styles.css" rel="stylesheet">
 
-    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
     <script src="js/pages/index.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
@@ -33,15 +33,15 @@
             <div class="col-md-4">
                 <%--<input type="text" value="008000" name="colorHex" id="colorHex" class="pick-a-color form-control">--%>
                 Цвет 1
-                <input ng-model="colorHex" value="008000" class="form-control">
+                <input colorpicker ng-model="colorHex" value="008000" class="form-control">
             </div>
             <div class="col-md-4">
                 Цвет 2
-                <input ng-model="colorHex2" value="ff0000" class="form-control">
+                <input colorpicker ng-model="colorHex2" value="ff0000" class="form-control">
             </div>
             <div class="col-md-4">
                 Цвет 3
-                <input ng-model="colorHex3" value="ff9099" class="form-control">
+                <input colorpicker ng-model="colorHex3" value="ff9099" class="form-control">
             </div>
         </div>
 
