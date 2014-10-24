@@ -21,19 +21,6 @@ public class Params implements Serializable {
 	/* TODO add enum*/
 	private int renderAlgorithmType;
 
-	public void Params() {
-		String colorHex = "1f2fdb";
-		String colorHex2 = "ff0000";
-		String colorHex3 = "001aff";
-		String colorHex20 = "00ffbf";
-		String colorHex21 = "ff6a00";
-
-		float innerBoxesSize = 1;
-		float aroundBoxesSize = 1;
-		int drawCountForReload = 50;
-		int renderAlgorithmType = 1;
-	}
-
 	public String getColorHex() {
 		return colorHex;
 	}
