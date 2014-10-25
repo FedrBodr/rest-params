@@ -25,7 +25,7 @@
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="<c:url value='/resources/js/pages/index.js'/>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
-    <script src="<c:url value='/resources/js/ui-bootstrap-0.11.2.min.js'/> "></script>
+    <script src="<c:url value='/resources/js/ui-bootstrap-0.11.2.min.js'/>"></script>
     <script src="<c:url value='/resources/js/ui-bootstrap-tpls-0.11.2.min.js'/> "></script>
     <script src="<c:url value='/resources/js/bootstrap-colorpicker-module.js'/> "></script>
     <script src="<c:url value='/resources/js/pages/fpar.js'/> "></script>
@@ -33,81 +33,39 @@
 </head>
 <body>
 <div class="wrapper container" ng-controller="MainCtrl">
-    <div >
-        <p>
-            <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-            <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
-        </p>
-
         <label class="checkbox">
             <input type="checkbox" ng-model="oneAtATime">
             Open only one at a time
         </label>
-        <accordion close-others="oneAtATime">
-            <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                This content is straight in the template.
+         <accordion close-others="oneAtATime">
+            <accordion-group heading="Общие настройки">
+                <div class="row">
+                    <div class="col-md-4">
+                        Цвет 1
+                        <input type='color' ng-model="colorHex" class="form-control"/>
+                    </div>
+                    <div class="col-md-4">
+                        Цвет 2
+                        <input type='color' ng-model="colorHex2" class="form-control"/>
+                    </div>
+                    <div class="col-md-4">
+                        Цвет фона
+                        <input type='color' ng-model="colorHex3" class="form-control"/>
+                    </div>
+                </div>
             </accordion-group>
-            <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-                {{group.content}}
+            <accordion-group heading="Настройки 1-ой формы">
+                <div class="row">
+
+                </div>
             </accordion-group>
-            <accordion-group heading="Dynamic Body Content">
-                <p>The body of the accordion group grows to fit the contents</p>
-                <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-                <div ng-repeat="item in items">{{item}}</div>
+            <accordion-group heading="Настройки 2-ой формы">
+                <div class="row">
+
+                </div>
             </accordion-group>
-            <accordion-group is-open="status.open">
-                <accordion-heading>
-                    I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                </accordion-heading>
-                This is just some content to illustrate fancy headings.
-            </accordion-group>
+
         </accordion>
-    </div>
-
-    <div id="accordion">
-        <h3></h3>
-        <div class="row">
-            <div class="col-md-4">
-                <%--<input type="text" value="008000" name="colorHex" id="colorHex" class="pick-a-color form-control">--%>
-
-            </div>
-            <div class="col-md-4">
-                Цвет 2
-                <input colorpicker ng-model="colorHex2" value="ff0000" class="form-control">
-            </div>
-            <div class="col-md-4">
-                Цвет 3
-                <input colorpicker ng-model="colorHex3" value="ff9099" class="form-control">
-            </div>
-        </div>
-
-        <h3>Настройки 1-ой формы</h3>
-        <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div>
-
-        <h3>Настройки 2-ой формы</h3>
-        <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div>
-
-
     </div>
 </div>
 
