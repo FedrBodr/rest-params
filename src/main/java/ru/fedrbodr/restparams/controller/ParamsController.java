@@ -36,19 +36,19 @@ public class ParamsController {
 		params.setAroundBoxesSize(1);
 		params.setDrawCountForReload(50);
 		params.setRenderAlgorithmType(1);
-		paramsData.put(999, params);
+		paramsData.put(9999, params);
 		return params;
 	}
 
 	@RequestMapping(value = ParamsRestURIConstants.GET_PARAMS, method = RequestMethod.GET)
 	public @ResponseBody Params getParams() {
 		logger.info("Start getParams");
-		return paramsData.get(999);
+		return paramsData.get(9999);
 	}
 
-	@RequestMapping(value = ParamsRestURIConstants.UPDATE_PARAMS, method = RequestMethod.PUT)
+    @RequestMapping(value = ParamsRestURIConstants.UPDATE_PARAMS, method = RequestMethod.PUT)
 	public @ResponseBody Params updateParams(@RequestBody Params params) {
-		logger.info("Start updateParams");
+		logger.info("Start updateParams " + params);
 		paramsData.put(9999, params);
 		return params;
 	}

@@ -32,8 +32,10 @@
 
 </head>
 <body>
+<form ng-submit="submitForm()">
 <div class="wrapper container" ng-controller="MainCtrl">
-        <label class="checkbox">
+    <button type="submit">Send</button>
+    <label class="checkbox">
             <input type="checkbox" ng-model="oneAtATime">
             Open only one at a time
         </label>
@@ -42,7 +44,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         Цвет 1
-                        <input type='color' ng-model="colorHex" class="form-control"/>
+                        <input type='color' ng-model="params.colorHex" class="form-control"/>
+                        <input type='text' ng-model="params.colorHex" class="form-control"/>
                     </div>
                     <div class="col-md-4">
                         Цвет 2
@@ -69,6 +72,6 @@
     </div>
 </div>
 
-
+</form>
 </body>
 </html>
