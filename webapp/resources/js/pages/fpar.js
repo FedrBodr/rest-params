@@ -22,9 +22,8 @@ app.controller( 'MainCtrl', function( $scope, $http ) {
 
 	$scope.submitForm=function(){
 		/* post to server*/
-
 		$http.put("http://localhost:8080/rpar/rest/props/update", $scope.params).success(function(data, status) {
-			$scope.hello = data;
+			$scope.params = data;
 		})
 	}
 

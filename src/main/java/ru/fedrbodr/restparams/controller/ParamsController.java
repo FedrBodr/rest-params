@@ -26,12 +26,11 @@ public class ParamsController {
 	public @ResponseBody Params getDummyParams() {
 		logger.info("Start getDummyParams");
 		Params params = new Params();
-		params.setColorHex("10000");
-		params.setColorHex("1f2fdb");
-		params.setColorHex2("ff0000");
-		params.setColorHex3("001aff");
-		params.setColorHex20("00ffbf");
-		params.setColorHex21("ff6a00");
+		params.setColorHex("#ffb50b");
+		params.setColorHex2("#ff0000");
+		params.setColorHex3("#001aff");
+		params.setColorHex20("#00ffbf");
+		params.setColorHex21("#ff6a00");
 		params.setInnerBoxesSize(1);
 		params.setAroundBoxesSize(1);
 		params.setDrawCountForReload(50);
