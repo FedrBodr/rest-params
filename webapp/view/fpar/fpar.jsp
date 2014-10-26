@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>">
     <link href="<c:url value='/resources/css/styles.css'/>" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="<c:url value='/resources/js/ui-bootstrap-0.11.2.min.js'/>"></script>
     <script src="<c:url value='/resources/js/ui-bootstrap-tpls-0.11.2.min.js'/> "></script>
     <script src="<c:url value='/resources/js/pages/fpar.js'/> "></script>
@@ -27,7 +27,7 @@
 <body ng-controller="MainCtrl">
 <form ng-submit="submitForm()" >
     <div class="wrapper container">
-        <button type="submit">Send</button>
+        <button type="submit" ng-click="submitForm()">Send</button>
         <label class="checkbox">
             <input type="checkbox" ng-model="oneAtATime">
             Open only one at a time
