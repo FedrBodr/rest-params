@@ -21,7 +21,23 @@ public class Params implements Serializable {
 	/* TODO add enum*/
 	private int renderAlgorithmType;
 
-	public String getColorHex() {
+
+    @Override
+    public String toString() {
+        return "Params{" +
+                "colorHex='" + colorHex + '\'' +
+                ", colorHex2='" + colorHex2 + '\'' +
+                ", colorHex3='" + colorHex3 + '\'' +
+                ", colorHex20='" + colorHex20 + '\'' +
+                ", colorHex21='" + colorHex21 + '\'' +
+                ", innerBoxesSize=" + innerBoxesSize +
+                ", aroundBoxesSize=" + aroundBoxesSize +
+                ", drawCountForReload=" + drawCountForReload +
+                ", renderAlgorithmType=" + renderAlgorithmType +
+                '}';
+    }
+
+    public String getColorHex() {
 		return colorHex;
 	}
 
