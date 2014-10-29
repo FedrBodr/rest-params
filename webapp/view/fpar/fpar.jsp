@@ -38,7 +38,7 @@
                     <div class="col-md-4">
                         Цвет 1
                         <input type='color' ng-model="params.colorHex" class="form-control"/>
-                        <input type='text' ng-model="params.colorHex" class="form-control"/>
+                        <input type='text'  ng-model="params.colorHex" class="form-control"/>
                     </div>
                     <div class="col-md-4">
                         Цвет 2
