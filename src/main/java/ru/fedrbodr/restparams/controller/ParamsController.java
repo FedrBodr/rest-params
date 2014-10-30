@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.fedrbodr.restparams.model.Params;
+import ru.fedrbodr.restparams.enums.VisualAlgorithm;
+import ru.fedrbodr.restparams.model.Parameters;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,12 +21,13 @@ public class ParamsController {
 	private static final Logger logger = LoggerFactory.getLogger(ParamsController.class);
 
 	//Map to store employees, // TODO use database hazelcast db instead map!
-	Map<Integer, Params> paramsData = new HashMap<Integer, Params>();
+	Map<Integer, Parameters> paramsData = new HashMap<Integer, Parameters>();
 
 	@RequestMapping(value = ParamsRestURIConstants.DUMMY_PARAMS, method = RequestMethod.GET)
-	public @ResponseBody Params getDummyParams() {
+	public @ResponseBody
+    Parameters getDummyParams() {
 		logger.info("Start getDummyParams");
-		Params params = new Params();
+		Parameters params = new Parameters();
 		params.setColorHex("#ffb50b");
 		params.setColorHex2("#ff0000");
 		params.setColorHex3("#001aff");
@@ -34,19 +36,21 @@ public class ParamsController {
 		params.setInnerBoxesSize(1);
 		params.setAroundBoxesSize(1);
 		params.setDrawCountForReload(50);
-		params.setRenderAlgorithmType(1);
+		params.setRenderAlgorithmType(VisualAlgorithm.SIMPLE);
 		paramsData.put(9999, params);
 		return params;
 	}
 
 	@RequestMapping(value = ParamsRestURIConstants.GET_PARAMS, method = RequestMethod.GET)
-	public @ResponseBody Params getParams() {
+	public @ResponseBody
+    Parameters getParams() {
 		logger.info("Start getParams");
 		return paramsData.get(9999);
 	}
 
     @RequestMapping(value = ParamsRestURIConstants.UPDATE_PARAMS, method = RequestMethod.PUT)
-	public @ResponseBody Params updateParams(@RequestBody Params params) {
+	public @ResponseBody
+    Parameters updateParams(@RequestBody Parameters params) {
 		logger.info("Start updateParams " + params);
 		paramsData.put(9999, params);
 		return params;

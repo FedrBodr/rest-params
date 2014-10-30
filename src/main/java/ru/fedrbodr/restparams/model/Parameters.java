@@ -1,11 +1,15 @@
 package ru.fedrbodr.restparams.model;
 
+import ru.fedrbodr.restparams.enums.VisualAlgorithm;
+
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * Created by Dmitry Fedorenko on 22.10.2014.
  */
-public class Params implements Serializable {
+@Table(name = "PARAMETERS")
+public class Parameters implements Serializable {
 	private static final long serialVersionUID = -2658619172398348912L;
 
 	private String colorHex;
@@ -19,12 +23,12 @@ public class Params implements Serializable {
 	private float aroundBoxesSize;
 	private int drawCountForReload;
 	/* TODO add enum*/
-	private int renderAlgorithmType;
+    private VisualAlgorithm renderAlgorithmType;
 
 
     @Override
     public String toString() {
-        return "Params{" +
+        return "Parameters{" +
                 "colorHex='" + colorHex + '\'' +
                 ", colorHex2='" + colorHex2 + '\'' +
                 ", colorHex3='" + colorHex3 + '\'' +
@@ -101,11 +105,11 @@ public class Params implements Serializable {
 		this.drawCountForReload = drawCountForReload;
 	}
 
-	public int getRenderAlgorithmType() {
-		return renderAlgorithmType;
-	}
+    public VisualAlgorithm getRenderAlgorithmType() {
+        return renderAlgorithmType;
+    }
 
-	public void setRenderAlgorithmType(int renderAlgorithmType) {
-		this.renderAlgorithmType = renderAlgorithmType;
-	}
+    public void setRenderAlgorithmType(VisualAlgorithm renderAlgorithmType) {
+        this.renderAlgorithmType = renderAlgorithmType;
+    }
 }
