@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.fedrbodr.restparams.enums.VisualAlgorithm;
 import ru.fedrbodr.restparams.model.Parameters;
+import ru.fedrbodr.restparams.model.ParametersDao;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,15 +20,14 @@ import java.util.Map;
 @Controller
 public class ParamsController {
 	private static final Logger logger = LoggerFactory.getLogger(ParamsController.class);
-
-	//Map to store employees, // TODO use database hazelcast db instead map!
-	Map<Integer, Parameters> paramsData = new HashMap<Integer, Parameters>();
+    private ParametersDao parametersDao;
 
 	@RequestMapping(value = ParamsRestURIConstants.DUMMY_PARAMS, method = RequestMethod.GET)
 	public @ResponseBody
     Parameters getDummyParams() {
 		logger.info("Start getDummyParams");
 		Parameters params = new Parameters();
+		params.setId(77l);
 		params.setColorHex("#ffb50b");
 		params.setColorHex2("#ff0000");
 		params.setColorHex3("#001aff");
@@ -37,7 +37,7 @@ public class ParamsController {
 		params.setAroundBoxesSize(1);
 		params.setDrawCountForReload(50);
 		params.setRenderAlgorithmType(VisualAlgorithm.SIMPLE);
-		paramsData.put(9999, params);
+		parametersDao.insert(params);
 		return params;
 	}
 
@@ -45,14 +45,18 @@ public class ParamsController {
 	public @ResponseBody
     Parameters getParams() {
 		logger.info("Start getParams");
-		return paramsData.get(9999);
+		return parametersDao.select(77l);
 	}
 
     @RequestMapping(value = ParamsRestURIConstants.UPDATE_PARAMS, method = RequestMethod.PUT)
 	public @ResponseBody
     Parameters updateParams(@RequestBody Parameters params) {
 		logger.info("Start updateParams " + params);
-		paramsData.put(9999, params);
+        parametersDao.insert(params);
 		return params;
 	}
+
+    public void setParametersDao(ParametersDao parametersDao) {
+        this.parametersDao = parametersDao;
+    }
 }
