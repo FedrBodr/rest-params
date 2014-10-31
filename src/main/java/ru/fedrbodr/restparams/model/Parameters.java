@@ -2,20 +2,19 @@ package ru.fedrbodr.restparams.model;
 
 import ru.fedrbodr.restparams.enums.VisualAlgorithm;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by Dmitry Fedorenko on 22.10.2014.
  */
+@Entity
 @Table(name = "PARAMETERS")
 public class Parameters implements Serializable {
     private static final long serialVersionUID = -2658619172398348912L;
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @Column(name = "color_hex")

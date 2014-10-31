@@ -4,7 +4,7 @@
 
 $(function () {
 	$.ajax({
-		url: 'http://localhost:8080/rpar/rest/props/dummy',
+		url: 'http://localhost:8080/rest/props/dummy',
 		timeout: 100,
 		success: function (response) {
 			var propsData = response;

@@ -19,30 +19,44 @@ public class ParametersDao {
         this.sessionFactory = sessionFactory;
     }
 
-    public void insert(Parameters parameters){
+
+    public void initInsert(Parameters parameters){
         Session session = getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.save(parameters);
+        session.saveOrUpdate(parameters);
+        session.getTransaction().commit();
+
+    }
+
+    public void insert(Parameters parameters){
+        Session session = getSessionFactory().getCurrentSession();
+        session.getTransaction().begin();
+        session.update(parameters);
         session.getTransaction().commit();
 
     }
 
     public Parameters select(Long id){
         Session session = getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Parameters param = (Parameters)session.byId(id.toString());
+        session.getTransaction().begin();
+        Parameters param = (Parameters) session.get(Parameters.class, id);
         session.getTransaction().commit();
         return param;
     }
 
     public List<Parameters> selectAll(){
         Session session = getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        session.getTransaction().begin();
         Criteria criteria = session.createCriteria(Parameters.class);
-        List<Parameters> persons = (List<Parameters>)criteria.list();
+        Object sqlResult = criteria.list();
         session.getTransaction().commit();
-        return persons;
-    }
 
+        List<Parameters> params = null;
+        if(sqlResult instanceof List) {
+            params = (List)sqlResult;
+        }
+
+        return params;
+    }
 
 }
