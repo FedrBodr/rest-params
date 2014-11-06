@@ -6173,7 +6173,8 @@ p {
   font-family: "Times New Roman", Times, serif;
 }
 body {
-  background-image: url(../images/bg.png);
+  /*background-image: url(../images/bg_back.png);*/
+  background-image: url(../images/badges.jpg);
 }
 .nav,
 .pagination,

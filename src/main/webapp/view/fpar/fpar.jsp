@@ -37,27 +37,44 @@
                 <div class="row">
                     <div class="col-md-4">
                         Цвет 1
-                        <input type='color' ng-model="params.colorHex" class="form-control"/>
-                        <input type='text'  ng-model="params.colorHex" class="form-control"/>
+                        <input type='color' ng-model="params.colorHex" class="form-control" ng-change="submitForm()" />
                     </div>
                     <div class="col-md-4">
                         Цвет 2
-                        <input type='color' ng-model="params.colorHex2" class="form-control"/>
+                        <input type='color' ng-model="params.colorHex2" class="form-control" ng-change="submitForm()"/>
                     </div>
                     <div class="col-md-4">
                         Цвет фона
-                        <input type='color' ng-model="params.colorHex3" class="form-control"/>
+                        <input type='color' ng-model="params.colorHex3" class="form-control" ng-change="submitForm()"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        Визуал типок
+                        <select class="form-control" ng-model="params.renderAlgorithmType" ng-change="submitForm()">
+                            <option ng-repeat="algtype in algtypes" value="{{algtype}}">{{algtype}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+
                     </div>
                 </div>
             </accordion-group>
             <accordion-group heading="Настройки 1-ой формы">
-                <div class="row">
-
+                <div class="row container">
+                     Будет - если захочу отдельные настройки каждой из форм, если хотите пишите мне!
+                    <a href="mailto:fedrbodr@gmail.com">на мою почту</a>
                 </div>
             </accordion-group>
-            <accordion-group heading="Настройки 2-ой формы">
-                <div class="row">
-
+            <accordion-group heading="Информация">
+                <div class="row container">
+                    Я вас люблю!
+                    Все можно развивать бесконечно, вплоть до написания искуственного интелекта который будет определят стиль музыки и
+                    затухания и основной ритм и тд и тп
+                    Но, на все это нужно время ) Если готовы спонсировать - <a href="mailto:fedrbodr@gmail.com">я готов взяться!</a>
                 </div>
             </accordion-group>
 

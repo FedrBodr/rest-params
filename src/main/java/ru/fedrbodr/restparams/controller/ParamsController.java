@@ -3,7 +3,6 @@ package ru.fedrbodr.restparams.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +13,12 @@ import ru.fedrbodr.restparams.model.Parameters;
 import ru.fedrbodr.restparams.model.ParametersDao;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
-import java.util.Map;
+import java.awt.*;
 
 /**
  * Created by Dmitry Fedorenko on 22.10.2014.
  */
 @Controller
-@Scope(value="session")
 public class ParamsController {
 	private static final Logger logger = LoggerFactory.getLogger(ParamsController.class);
     @Autowired
@@ -39,7 +36,7 @@ public class ParamsController {
         params.setInnerBoxesSize(1);
         params.setAroundBoxesSize(1);
         params.setDrawCountForReload(50);
-        params.setRenderAlgorithmType(VisualAlgorithm.SIMPLE);
+        params.setRenderAlgorithmType(VisualAlgorithm.doubleAtomicSprocketFixedColorWithBack);
     }
 
     @PostConstruct
@@ -58,6 +55,14 @@ public class ParamsController {
 		return params;
 	}
 
+    @RequestMapping(value = ParamsRestURIConstants.ALG_TYPES, method = RequestMethod.GET)
+	public @ResponseBody
+    String[] getAlgTypes() {
+		logger.info("Start getAlgTypes");
+
+		return VisualAlgorithm.names();
+	}
+
     @RequestMapping(value = ParamsRestURIConstants.GET_PARAMS, method = RequestMethod.GET)
 	public @ResponseBody
     Parameters getParams() {
@@ -72,6 +77,14 @@ public class ParamsController {
         parametersDao.insert(params);
 		return params;
 	}
+
+    public Color hex2Rgb(String colorStr) {
+
+        return new Color(
+                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
+                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
+                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ) );
+    }
 
     public ParametersDao getParametersDao() {
         return parametersDao;

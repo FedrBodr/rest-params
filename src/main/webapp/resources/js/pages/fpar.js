@@ -13,6 +13,19 @@ app.controller( 'MainCtrl', function( $scope, $http ) {
 		$http.get('http://localhost:8080/rpar/rest/props/dummy').
 			success(function(data) {
 				$scope.params = angular.fromJson(data);
+				console.log("$scope.params.renderAlgorithmType = " + $scope.params.renderAlgorithmType );
+
+			}).
+			error(function(data, status, headers, config) {
+				// called asynchronously if an error occurs
+				// or server returns response with an error status.
+				console.log(data + " " + status + " " + headers +  " " + config);
+
+			});
+		$http.get('http://localhost:8080/rpar/rest/props/alg-types').
+			success(function(data) {
+				$scope.algtypes = angular.fromJson(data);
+				console.log("alg types " + $scope.algtypes);
 
 			}).
 			error(function(data, status, headers, config) {
