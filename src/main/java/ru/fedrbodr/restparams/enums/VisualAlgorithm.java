@@ -14,7 +14,8 @@ public enum VisualAlgorithm {
     dotsVolumeBack("DotsVolumeBack", 8),
     daveBeesVisuals_doubleAtomicSprocketFixedColorWithoutBack("DaveBeesVisuals_DoubleAtomicSprocketFixedColorWithoutBack", 9),
     squareVasarelyVisual("Square VasarelyVisual", 10),
-    CTA2Visual("CTA2 Visual", 11);
+    CTA2Visual("CTA2 Visual", 11),
+    FoolShuVisual("CTA2 Visual", 13);
 
     private String name;
     private Integer id;
