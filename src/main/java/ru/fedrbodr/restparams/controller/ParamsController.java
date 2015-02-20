@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import ru.fedrbodr.restparams.enums.LogosVisual;
 import ru.fedrbodr.restparams.enums.VisualAlgorithm;
 import ru.fedrbodr.restparams.model.Parameters;
 import ru.fedrbodr.restparams.model.ParametersDao;
@@ -28,6 +29,7 @@ public class ParamsController {
     public ParamsController() {
         super();
         params = new Parameters();
+        params.setId(1l);
         params.setColorHex("#ffb50b");
         params.setColorHex2("#ff0000");
         params.setColorHex3("#001aff");
@@ -37,11 +39,14 @@ public class ParamsController {
         params.setAroundBoxesSize(1);
         params.setDrawCountForReload(50);
         params.setRenderAlgorithmType(VisualAlgorithm.doubleAtomicSprocketFixedColorWithBack);
+        params.setLogoVisualType(LogosVisual.loveVisaul);
+        params.setFftBandNumber(0);
     }
 
     @PostConstruct
     public void init() {
         // do some initialization work
+        logger.info("Init start with params id = " + params.getId());
         parametersDao.initInsert(params);
         logger.info("Init complite params id = " + params.getId());
 
@@ -62,6 +67,13 @@ public class ParamsController {
 
 		return VisualAlgorithm.names();
 	}
+
+    @RequestMapping(value = ParamsRestURIConstants.LOGO_TYPES, method = RequestMethod.GET)
+    public @ResponseBody
+    String[] getLogoTypes() {
+        logger.info("Start getLogoTypes");
+        return LogosVisual.names();
+    }
 
     @RequestMapping(value = ParamsRestURIConstants.GET_PARAMS, method = RequestMethod.GET)
 	public @ResponseBody

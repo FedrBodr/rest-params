@@ -15,7 +15,19 @@ public enum VisualAlgorithm {
     daveBeesVisuals_doubleAtomicSprocketFixedColorWithoutBack("DaveBeesVisuals_DoubleAtomicSprocketFixedColorWithoutBack", 9),
     squareVasarelyVisual("Square VasarelyVisual", 10),
     CTA2Visual("CTA2 Visual", 11),
-    FoolShuVisual("CTA2 Visual", 13);
+    FoolShuVisual("CTA2 Visual", 13),
+
+    love("Love", 20), love_double_back("love_double_back", 30), love_bee_back("love_bee_back", 40), love_dots_volume_back("love_dots_volume_back", 50), love_CTA2Visual("love_CTA2Visual", 60),
+
+    rial_flo("rial_flo", 70),
+    pis_relax("pis_relax", 80),
+    dhyp("dhyp", 90),
+    sumie("sumie", 100),
+    kaplya("kaplya", 110),
+    not_fat("not_fat", 120),
+    creazyBoxVisual("creazyBoxVisual", 140),
+    lefik("lefik", 130);
+
 
     private String name;
     private Integer id;
@@ -24,7 +36,6 @@ public enum VisualAlgorithm {
         this.name = name;
         this.id = id;
     }
-
 
     // API
 

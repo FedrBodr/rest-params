@@ -1,5 +1,6 @@
 package ru.fedrbodr.restparams.model;
 
+import ru.fedrbodr.restparams.enums.LogosVisual;
 import ru.fedrbodr.restparams.enums.VisualAlgorithm;
 
 import javax.persistence.*;
@@ -14,7 +15,6 @@ public class Parameters implements Serializable {
     private static final long serialVersionUID = -2658619172398348912L;
 
     @Id
-    @GeneratedValue
     private Long id;
 
     @Column(name = "color_hex")
@@ -44,6 +44,12 @@ public class Parameters implements Serializable {
     @Column(name = "render_algorithm_type")
     private VisualAlgorithm renderAlgorithmType;
 
+    @Column(name = "fft_band_Number")
+    private int fftBandNumber;
+
+    @Column(name = "logo_visual_type")
+    private LogosVisual logoVisualType;
+
     public Parameters() {
     }
 
@@ -64,7 +70,8 @@ public class Parameters implements Serializable {
     @Override
     public String toString() {
         return "Parameters{" +
-                "colorHex='" + colorHex + '\'' +
+                "id=" + id +
+                ", colorHex='" + colorHex + '\'' +
                 ", colorHex2='" + colorHex2 + '\'' +
                 ", colorHex3='" + colorHex3 + '\'' +
                 ", colorHex20='" + colorHex20 + '\'' +
@@ -73,6 +80,8 @@ public class Parameters implements Serializable {
                 ", aroundBoxesSize=" + aroundBoxesSize +
                 ", drawCountForReload=" + drawCountForReload +
                 ", renderAlgorithmType=" + renderAlgorithmType +
+                ", fftBandNumber=" + fftBandNumber +
+                ", logoVisualType=" + logoVisualType +
                 '}';
     }
 
@@ -140,7 +149,7 @@ public class Parameters implements Serializable {
         this.drawCountForReload = drawCountForReload;
     }
 
-    public VisualAlgorithm getRenderAlgorithmType() {
+    public VisualAlgorithm  getRenderAlgorithmType() {
         return renderAlgorithmType;
     }
 
@@ -154,5 +163,21 @@ public class Parameters implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getFftBandNumber() {
+        return fftBandNumber;
+    }
+
+    public void setFftBandNumber(int fftBandNumber) {
+        this.fftBandNumber = fftBandNumber;
+    }
+
+    public void setLogoVisualType(LogosVisual logoVisualType) {
+        this.logoVisualType = logoVisualType;
+    }
+
+    public LogosVisual getLogoVisualType() {
+        return logoVisualType;
     }
 }

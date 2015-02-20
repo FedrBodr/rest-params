@@ -9,4 +9,5 @@ public class ParamsRestURIConstants {
 	public static final String UPDATE_PARAMS = "rest/props/update";
 
     public static final String ALG_TYPES = "rest/props/alg-types";
+    public static final String LOGO_TYPES = "rest/props/logo-types";
 }
